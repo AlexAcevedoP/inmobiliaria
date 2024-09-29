@@ -1,0 +1,14 @@
+# Establecer el archivo predeterminado
+DirectoryIndex index.php
+
+# Habilitar el motor de reescritura
+RewriteEngine On
+
+# Redirigir la raíz del sitio a public/index.php
+RewriteRule ^$ public/index.php [L]
+
+# Redirigir todas las solicitudes que no comienzan con public/ a la carpeta public
+RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
+
+# Manejar errores 404
+ErrorDocument 404 /public/404.php

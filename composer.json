@@ -1,0 +1,21 @@
+{
+    "name": "alex/bienes-raices-php_fin",
+    "description": "Agregando POO",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Alex"
+        }
+    ],
+    "require": {
+        "intervention/image": "2.5",
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Model\\" : "./models",
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers"
+        }
+    }
+}
