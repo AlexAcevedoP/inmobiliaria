@@ -24,15 +24,15 @@
 }
 
 .barra {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 3rem;
 
     img {
         width: 30rem;
     }
-
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3rem;
     @include tablet {
         flex-direction: row;
         justify-content: space-between;
@@ -41,18 +41,19 @@
 }
 
 .navegacion {
+
+
     visibility: hidden;
     opacity: 0;
     height: 0;
-    transition: visibility .3s ease-in-out, opacity .5s linear, height .5s linear;
-
+    transition: visibility .3s ease-in-out, opacity .5s linear, height .5s linear; 
     @include tablet {
         display: flex;
         align-items: center;
         opacity: 1;
         visibility: visible;
     }
-
+    
     a {
         color: $blanco;
         text-decoration: none;
@@ -74,6 +75,7 @@
         }
     }
 }
+
 
 /** Menu de hamburguesa **/
 .mobile-menu {

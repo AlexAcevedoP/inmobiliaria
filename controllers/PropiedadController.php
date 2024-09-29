@@ -6,6 +6,8 @@ use Model\Propiedad;
 use Model\Vendedor;
 use Intervention\Image\ImageManagerStatic as Image;
 
+// Incluir el archivo de funciones
+require_once __DIR__ . '/../includes/funciones.php';
 
 class PropiedadController{
 
