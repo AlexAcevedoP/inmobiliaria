@@ -3,6 +3,7 @@
 define('TEMPLATES_URL', __DIR__ . '/templates');
 define('FUNCIONES_URL', __DIR__ . '/funciones.php');
 define('CARPETA_IMAGENES', __DIR__ . '/../public/imagenes/');
+define('CARPETA_GALERIA', __DIR__ . '/../public/galeria/');
 
 
 function incluirTemplate(string  $nombre, bool $inicio = false)

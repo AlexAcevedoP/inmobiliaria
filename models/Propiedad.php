@@ -7,7 +7,7 @@ class Propiedad extends ActiveRecord
 
     protected static $tabla = 'propiedades';
 
-    protected static $columnasDB = ['id', 'titulo', 'precio', 'imagen', 'descripcion', 'habitaciones', 'wc', 'estacionamiento', 'creado', 'vendedorId'];
+    protected static $columnasDB = ['id', 'titulo', 'precio', 'imagen', 'descripcion', 'habitaciones', 'wc', 'estacionamiento', 'creado', 'vendedorId', 'departamento', 'municipio', 'tipo_propiedad'];
 
     public $id;
     public $titulo;
@@ -40,6 +40,10 @@ class Propiedad extends ActiveRecord
         $this->departamento = $args['departamento'] ?? '';
         $this->municipio = $args['municipio'] ?? '';
         $this->tipo_propiedad = $args['tipo_propiedad'] ?? '';
+    }
+
+    public function imagenes() {
+        return Imagen::all('property_id', $this->id);
     }
 
     public function validar()
@@ -76,17 +80,23 @@ class Propiedad extends ActiveRecord
         if (!$this->imagen) {
             self::$errores[] = 'La Imagen es Obligatoria';
         }
-        //validación de nuevos campos ( deben ser obligatorios)
-        if(!$this->departamento) {
+        // Validación de nuevos campos (deben ser obligatorios y solo letras)
+        if (!$this->departamento) {
             self::$errores[] = 'El Departamento es obligatorio';
+        } elseif (!preg_match('/^[a-zA-Z\s]+$/', $this->departamento)) {
+            self::$errores[] = 'El Departamento solo puede contener letras';
         }
 
-        if(!$this->municipio) {
+        if (!$this->municipio) {
             self::$errores[] = 'El Municipio es obligatorio';
+        } elseif (!preg_match('/^[a-zA-Z\s]+$/', $this->municipio)) {
+            self::$errores[] = 'El Municipio solo puede contener letras';
         }
 
-        if(!$this->tipo_propiedad) {
+        if (!$this->tipo_propiedad) {
             self::$errores[] = 'El Tipo de Propiedad es obligatorio';
+        } elseif (!preg_match('/^[a-zA-Z\s]+$/', $this->tipo_propiedad)) {
+            self::$errores[] = 'El Tipo de Propiedad solo puede contener letras';
         }
 
         return self::$errores;
