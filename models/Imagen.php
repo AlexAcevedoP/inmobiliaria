@@ -15,4 +15,15 @@ class Imagen extends ActiveRecord {
         $this->property_id = $args['property_id'] ?? '';
         $this->image_path = $args['image_path'] ?? '';
     }
+    public function guardar()
+    {
+        if (!is_null($this->id)) {
+            // Actualizar
+            $this->actualizar();
+        } else {
+            // Crear
+            $this->crear();
+        }
+    }
+
 }

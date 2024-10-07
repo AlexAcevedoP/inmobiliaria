@@ -42,9 +42,32 @@ class Propiedad extends ActiveRecord
         $this->tipo_propiedad = $args['tipo_propiedad'] ?? '';
     }
 
-    public function imagenes() {
-        return Imagen::all('property_id', $this->id);
+public function imagenes() {
+    return Imagen::where('property_id', $this->id);
+}
+
+// Método para eliminar las imágenes de la galería relacionadas con la propiedad actual
+public function eliminarImagenes() {
+    $imagenes = $this->imagenes();
+    foreach ($imagenes as $imagen) {
+        // Eliminar el archivo de imagen del servidor
+        $archivoImagen = CARPETA_GALERIA . trim($imagen->image_path);
+
+        if (file_exists($archivoImagen)) {
+            if (unlink($archivoImagen)) {
+                // Imagen eliminada correctamente
+            } else {
+                // Error al eliminar la imagen
+            }
+        } else {
+            // Imagen no encontrada
+        }
+
+        // Eliminar el registro de la base de datos
+        $imagen->eliminar();
     }
+}
+
 
     public function validar()
     {
@@ -83,20 +106,18 @@ class Propiedad extends ActiveRecord
         // Validación de nuevos campos (deben ser obligatorios y solo letras)
         if (!$this->departamento) {
             self::$errores[] = 'El Departamento es obligatorio';
-        } elseif (!preg_match('/^[a-zA-Z\s]+$/', $this->departamento)) {
+        } elseif (!preg_match('/^[\p{L}\s]+$/u', $this->departamento)) {
             self::$errores[] = 'El Departamento solo puede contener letras';
         }
-
+        
         if (!$this->municipio) {
             self::$errores[] = 'El Municipio es obligatorio';
-        } elseif (!preg_match('/^[a-zA-Z\s]+$/', $this->municipio)) {
+        } elseif (!preg_match('/^[\p{L}\s]+$/u', $this->municipio)) {
             self::$errores[] = 'El Municipio solo puede contener letras';
         }
 
         if (!$this->tipo_propiedad) {
             self::$errores[] = 'El Tipo de Propiedad es obligatorio';
-        } elseif (!preg_match('/^[a-zA-Z\s]+$/', $this->tipo_propiedad)) {
-            self::$errores[] = 'El Tipo de Propiedad solo puede contener letras';
         }
 
         return self::$errores;

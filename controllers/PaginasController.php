@@ -4,6 +4,7 @@ namespace Controllers;
 
 use MVC\Router;
 use Model\Propiedad;
+use Model\Imagen;
 use PHPMailer\PHPMailer\PHPMailer;
 
 class PaginasController
@@ -29,6 +30,8 @@ class PaginasController
             'propiedades' => $propiedades
         ]);
     }
+
+    //muestra el detalle de la propiedad
     public static function propiedad(Router $router)
     {
 
@@ -37,10 +40,19 @@ class PaginasController
         //buscar la propiedad por su id
         $propiedad = Propiedad::find($id);
 
+        // Obtener las imágenes de la galería para la propiedad actual
+        $imagenesGaleria = Imagen::where('property_id', $id);
+
+
+
+
         $router->render('paginas/propiedad', [
-            'propiedad' => $propiedad
+            'propiedad' => $propiedad,
+            'imagenesGaleria' => $imagenesGaleria // Pasar las imágenes de la galería a la vista
         ]);
     }
+
+
     public static function blog(Router $router)
     {
 
@@ -50,7 +62,8 @@ class PaginasController
     {
         $router->render('paginas/entrada');
     }
-    public static function contacto(Router $router){
+    public static function contacto(Router $router)
+    {
 
         $mensaje = null;
 
@@ -115,7 +128,7 @@ class PaginasController
         }
 
         $router->render('paginas/contacto', [
-            'mensaje'=>$mensaje
+            'mensaje' => $mensaje
         ]);
     }
 }

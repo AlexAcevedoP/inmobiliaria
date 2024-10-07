@@ -65,11 +65,12 @@
     <label for="imagenes">Subir Imágenes:</label>
     <input type="file" id="imagenes" name="imagenes[]" accept="image/jpeg, image/png" multiple>
 
-    <?php if (!empty($propiedad->imagenes())) { ?>
+    <?php if(isset($propiedad->id) && !empty($propiedad->imagenes())): ?>
+        <!-- Mostrar la galería de imágenes solo si estamos actualizando una propiedad -->
         <div class="galeria-imagenes">
             <?php foreach ($propiedad->imagenes() as $imagen) { ?>
                 <img src="/ruta/a/imagenes/<?php echo $imagen->image_path; ?>" class="imagen-small" alt="Imagen de la propiedad">
             <?php } ?>
         </div>
-    <?php } ?>
+    <?php endif; ?>
 </fieldset>

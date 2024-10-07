@@ -42,11 +42,17 @@ class ActiveRecord{
          $query .= " ') ";
 
         $resultado = self::$db->query($query);
+
         //Mensaje de exito o error
         if ($resultado) {
-            // Redireccionar al usuario.
-            header('Location: /admin?resultado=1');
-        }
+        // Asignar el ID insertado al objeto actual
+        $this->id = self::$db->insert_id;
+    } else {
+        // Depuración: Registrar el error
+        error_log("Error en la consulta: " . self::$db->error);
+    }
+
+    return $resultado;
     } 
 
     public function actualizar(){
@@ -75,6 +81,14 @@ class ActiveRecord{
 
     //Eliminar un registro
     public function eliminar (){
+        
+         // Si el modelo tiene un método para obtener imágenes, elimínalas primero
+         if (method_exists($this, 'imagenes')) {
+            $imagenes = $this->imagenes();
+            foreach ($imagenes as $imagen) {
+                $imagen->eliminar();
+            }
+        }
        // Eliminar la propiedad
        $query = "DELETE FROM " . static::$tabla . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1";
 
@@ -86,8 +100,6 @@ class ActiveRecord{
         }
 
     }
-
-
 
 //Identificar y unir los atributos de la BD
     public function atributos(){
@@ -130,6 +142,8 @@ class ActiveRecord{
          }
     }
 
+    
+    
 
     //Validacion
     public static function getErrores(){
@@ -195,6 +209,12 @@ class ActiveRecord{
             }
         }
         return $objeto;
+    }
+
+    public static function where($columna, $valor) {
+        $query = "SELECT * FROM " . static::$tabla . " WHERE {$columna} = '{$valor}'";
+        $resultado = self::consultarSQL($query);
+        return $resultado;
     }
 
     //Sincroniza el objeto en memoria con los cambios realizados por el usuario
