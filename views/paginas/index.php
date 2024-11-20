@@ -1,13 +1,8 @@
-<main class="contenedor seccion">
-    <h1>Más Sobre Nosotros</h1>
-    <?php include 'iconos.php'; ?>
-</main>
-
 <section class="seccion contenedor">
     <h2>Casas y Apartamentos en Venta</h2>
-
-    <?php 
-        include 'listado.php';
+    
+    <?php
+    include 'listado.php';
     ?>
 
     <div class="alinear-derecha">
@@ -20,6 +15,11 @@
     <p>Llena el formulario de contacto y un asesor se pondrá en contacto contigo a la brevedad</p>
     <a href="/contacto" class="boton-amarillo">Contactános</a>
 </section>
+
+<main class="contenedor seccion">
+    <h1>Más Sobre Nosotros</h1>
+    <?php include 'iconos.php'; ?>
+</main>
 
 <div class="contenedor seccion seccion-inferior">
     <section class="blog">
