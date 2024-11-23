@@ -49,7 +49,7 @@ if ($resultado->num_rows) {
 ?>
 
 <!-- Formulario de Filtro -->
-<form  method="GET" class="formulario-filtro">
+<form  method="GET" class="formulario-filtro ">
     <div class="campo">
         <label for="precio">Precio Máximo:</label>
         <input type="number" id="precio" name="precio" placeholder="Ej. 500000">
