@@ -24,6 +24,7 @@
         <p><strong>Departamento:</strong> <?php echo $propiedad->departamento; ?></p>
         <p><strong>Municipio:</strong> <?php echo $propiedad->municipio; ?></p>
         <p><strong>Tipo de Propiedad:</strong> <?php echo $propiedad->tipo_propiedad; ?></p>
+        <p><strong>Área:</strong> <?php echo $propiedad->metros_cuadrados; ?> m²</p>
 
         <?php echo $propiedad->descripcion; ?>
 

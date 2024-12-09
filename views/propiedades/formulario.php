@@ -43,6 +43,9 @@
                 <?php echo $tipo->nombre; ?>
             </option>
         <?php endforeach; ?>
+    <label for="metros_cuadrados">Metros Cuadrados:</label>
+    <input type="number" id="metros_cuadrados" name="propiedad[metros_cuadrados]" placeholder="Ej. 120" value="<?php echo s($propiedad->metros_cuadrados); ?>">
+
     </select>
 </fieldset>
 

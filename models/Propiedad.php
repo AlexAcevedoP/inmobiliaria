@@ -7,7 +7,7 @@ class Propiedad extends ActiveRecord
 
     protected static $tabla = 'propiedades';
 
-    protected static $columnasDB = ['id', 'titulo', 'precio', 'imagen', 'descripcion', 'habitaciones', 'wc', 'estacionamiento', 'creado', 'vendedorId', 'departamento', 'municipio', 'tipo_propiedad'];
+    protected static $columnasDB = ['id', 'titulo', 'precio', 'imagen', 'descripcion', 'habitaciones', 'wc', 'estacionamiento', 'creado', 'vendedorId', 'departamento', 'municipio', 'tipo_propiedad', 'metros_cuadrados'];	
 
     public $id;
     public $titulo;
@@ -23,6 +23,7 @@ class Propiedad extends ActiveRecord
     public $departamento;
     public $municipio;
     public $tipo_propiedad;
+    public $metros_cuadrados;
 
     public function __construct($args = [])
     {
@@ -40,6 +41,7 @@ class Propiedad extends ActiveRecord
         $this->departamento = $args['departamento'] ?? '';
         $this->municipio = $args['municipio'] ?? '';
         $this->tipo_propiedad = $args['tipo_propiedad'] ?? '';
+        $this->metros_cuadrados = $args['metros_cuadrados'] ?? '';
     }
 
 public function imagenes() {
@@ -119,6 +121,13 @@ public function eliminarImagenes() {
         if (!$this->tipo_propiedad) {
             self::$errores[] = 'El Tipo de Propiedad es obligatorio';
         }
+
+        if (!$this->metros_cuadrados) {
+            self::$errores[] = 'Los Metros Cuadrados son obligatorios';
+        } elseif (!is_numeric($this->metros_cuadrados) || $this->metros_cuadrados <= 0) {
+            self::$errores[] = 'Los Metros Cuadrados deben ser un número positivo';
+        }
+
 
         return self::$errores;
     }

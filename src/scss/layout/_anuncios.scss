@@ -22,6 +22,18 @@
     color: $verde;
     font-weight: $bold;
     font-size: 3rem;
+
+    .metros-cuadrados {
+        font-weight: $bold;
+        color: #000;
+        margin-left: 35px; /* Ajusta el margen según sea necesario */
+    }
+}
+
+.formulario-filtro {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
 }
 
 .iconos-caracteristicas {

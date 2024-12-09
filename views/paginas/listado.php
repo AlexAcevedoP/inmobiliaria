@@ -10,6 +10,8 @@ $wc = $_GET['wc'] ?? '';
 $estacionamiento = $_GET['estacionamiento'] ?? '';
 $municipio = $_GET['municipio'] ?? '';
 $departamento = $_GET['departamento'] ?? '';
+$metros_min = $_GET['metros_min'] ?? '';
+$metros_max = $_GET['metros_max'] ?? '';
 
 // Construir la consulta SQL
 $query = "SELECT * FROM propiedades WHERE 1=1";
@@ -37,6 +39,13 @@ if ($municipio) {
 if ($departamento) {
     $query .= " AND departamento LIKE '%" . $db->escape_string($departamento) . "%'";
 }
+if ($metros_min) {
+    $query .= " AND metros_cuadrados >= " . intval($metros_min);
+}
+
+if ($metros_max) {
+    $query .= " AND metros_cuadrados <= " . intval($metros_max);
+}
 
 $resultado = $db->query($query);
 
@@ -49,7 +58,7 @@ if ($resultado->num_rows) {
 ?>
 
 <!-- Formulario de Filtro -->
-<form  method="GET" class="formulario-filtro ">
+<form  method="GET" class="formulario-filtro" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
     <div class="campo">
         <label for="precio">Precio Máximo:</label>
         <input type="number" id="precio" name="precio" placeholder="Ej. 500000">
@@ -80,6 +89,16 @@ if ($resultado->num_rows) {
         <input type="text" id="departamento" name="departamento" placeholder="Ej. Antioquia">
     </div>
 
+    <div class="campo">
+        <label for="metros_min">Metros Cuadrados (Desde):</label>
+        <input type="number" id="metros_min" name="metros_min" placeholder="Ej. 50">
+    </div>
+
+    <div class="campo">
+        <label for="metros_max">Metros Cuadrados (Hasta):</label>
+        <input type="number" id="metros_max" name="metros_max" placeholder="Ej. 200">
+    </div>
+
     <input type="submit" value="Buscar" class="boton-verde">
 </form>
 
@@ -92,7 +111,12 @@ if ($resultado->num_rows) {
             <div class="contenido-anuncio">
                 <h3><?php echo $propiedad->titulo; ?></h3>
                 <p><?php echo $propiedad->descripcion; ?></p>
-                <p class="precio">$<?php echo number_format($propiedad->precio); ?></p>
+                <p class="precio">$<?php echo number_format($propiedad->precio); ?>
+                <span class="metros-cuadrados"><?php echo $propiedad->metros_cuadrados; ?> m²</span>
+            </p>
+           
+               
+                
 
                 <ul class="iconos-caracteristicas">
                     <li>
@@ -106,7 +130,7 @@ if ($resultado->num_rows) {
                     <li>
                         <img class="icono" loading="lazy" src="/build/img/icono_dormitorio.svg" alt="icono habitaciones">
                         <p><?php echo $propiedad->habitaciones; ?></p>
-                    </li>
+                    </li>                    
                 </ul>
 
                 <a href="/propiedad?id=<?php echo $propiedad->id; ?>" class="boton-amarillo-block">
