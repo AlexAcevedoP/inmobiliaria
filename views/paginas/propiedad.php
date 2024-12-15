@@ -5,7 +5,7 @@
     <img loading="lazy" src="/imagenes/<?php echo $propiedad->imagen; ?>" alt="imagen de la propiedad">
 
     <div class="resumen-propiedad">
-    <p class="precio">$<?php echo number_format($propiedad->precio); ?>
+    <p class="precio">$<?php echo number_format($propiedad->precio); ?> </p>
         <ul class="iconos-caracteristicas">
             <li>
                 <img class="icono" loading="lazy" src="build/img/icono_wc.svg" alt="icono wc">
@@ -44,11 +44,12 @@
         </div>
     </div>
 
+
+</main>
     <!-- Contenedor para la imagen ampliada -->
-<div id="imagen-ampliada" class="imagen-ampliada">
+    <div id="imagen-ampliada" class="imagen-ampliada">
     <span class="cerrar">&times;</span>
     <img class="imagen-ampliada-contenido" id="imagen-ampliada-contenido">
     <a class="prev" id="prev">&#10094;</a>
     <a class="next" id="next">&#10095;</a>
 </div>
-</main>

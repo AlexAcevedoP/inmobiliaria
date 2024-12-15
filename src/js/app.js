@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     eventListeners();
 
     darkMode();
+
+    galeriaImagenes();
 });
 
 function darkMode() {
