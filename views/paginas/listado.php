@@ -110,7 +110,7 @@ if ($resultado->num_rows) {
             <img loading="lazy" src="/imagenes/<?php echo $propiedad->imagen; ?>" alt="anuncio">
 
             <div class="contenido-anuncio">
-                <h3><?php echo $propiedad->titulo; ?></h3>
+                <h3><strong><?php echo $propiedad->titulo; ?></strong></h3>
                 <p><?php echo nl2br($propiedad->descripcion); ?></p>
                 <p class="precio">$<?php echo number_format($propiedad->precio, 0, ',', '.'); ?></p>
                 <span class="metros-cuadrados"><?php echo $propiedad->metros_cuadrados; ?> m²</span>
