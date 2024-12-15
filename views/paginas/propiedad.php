@@ -5,7 +5,7 @@
     <img loading="lazy" src="/imagenes/<?php echo $propiedad->imagen; ?>" alt="imagen de la propiedad">
 
     <div class="resumen-propiedad">
-        <p class="precio">$<?php echo $propiedad->precio; ?></p>
+    <p class="precio">$<?php echo number_format($propiedad->precio); ?>
         <ul class="iconos-caracteristicas">
             <li>
                 <img class="icono" loading="lazy" src="build/img/icono_wc.svg" alt="icono wc">
@@ -26,7 +26,7 @@
         <p><strong>Tipo de Propiedad:</strong> <?php echo $propiedad->tipo_propiedad; ?></p>
         <p><strong>Área:</strong> <?php echo $propiedad->metros_cuadrados; ?> m²</p>
 
-        <?php echo $propiedad->descripcion; ?>
+        <p><?php echo nl2br($propiedad->descripcion); ?></p>
 
         <div class="galeria-imagenes">
         <h2>Galería de Imágenes</h2>
