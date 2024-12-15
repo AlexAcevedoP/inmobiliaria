@@ -58,7 +58,8 @@ if ($resultado->num_rows) {
 ?>
 
 <!-- Formulario de Filtro -->
-<form  method="GET" class="formulario-filtro" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
+ 
+<form  method="GET" class="formulario" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
     <div class="campo">
         <label for="precio">Precio Máximo:</label>
         <input type="number" id="precio" name="precio" placeholder="Ej. 500000">
