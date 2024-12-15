@@ -72,3 +72,44 @@ function mostrarMetodosContacto(e){
      `;
    }
 }
+function galeriaImagenes() {
+    const miniaturas = document.querySelectorAll('.miniatura');
+    const imagenAmpliada = document.getElementById('imagen-ampliada');
+    const imagenAmpliadaContenido = document.getElementById('imagen-ampliada-contenido');
+    const cerrar = document.querySelector('.cerrar');
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    let currentIndex = 0;
+
+    miniaturas.forEach(miniatura => {
+        miniatura.addEventListener('click', function() {
+            currentIndex = parseInt(this.getAttribute('data-index'));
+            mostrarImagenAmpliada(currentIndex);
+        });
+    });
+
+    cerrar.addEventListener('click', function() {
+        imagenAmpliada.style.display = 'none';
+    });
+
+    prev.addEventListener('click', function() {
+        currentIndex = (currentIndex === 0) ? miniaturas.length - 1 : currentIndex - 1;
+        mostrarImagenAmpliada(currentIndex);
+    });
+
+    next.addEventListener('click', function() {
+        currentIndex = (currentIndex === miniaturas.length - 1) ? 0 : currentIndex + 1;
+        mostrarImagenAmpliada(currentIndex);
+    });
+
+    imagenAmpliada.addEventListener('click', function(event) {
+        if (event.target === imagenAmpliada) {
+            imagenAmpliada.style.display = 'none';
+        }
+    });
+
+    function mostrarImagenAmpliada(index) {
+        imagenAmpliada.style.display = 'block';
+        imagenAmpliadaContenido.src = miniaturas[index].src;
+    }
+}

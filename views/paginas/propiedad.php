@@ -29,16 +29,26 @@
         <p><?php echo nl2br($propiedad->descripcion); ?></p>
 
         <div class="galeria-imagenes">
-        <h2>Galería de Imágenes</h2>
-        <?php 
-        $imagenes = $propiedad->imagenes();
-        if ($imagenes) {
-            foreach ($imagenes as $imagen) { ?>
-                <img loading="lazy" src="/galeria/<?php echo $imagen->image_path; ?>" alt="imagen de la galería">
-            <?php }
-        } else { ?>
-            <p>No hay imágenes adicionales para esta propiedad.</p>
-        <?php } ?>
+            <h2>Galería de Imágenes</h2>
+            <div class="galeria-grid">
+                <?php 
+                $imagenes = $propiedad->imagenes();
+                if ($imagenes) {
+                    foreach ($imagenes as $index => $imagen) { ?>
+                        <img class="miniatura" loading="lazy" src="/galeria/<?php echo $imagen->image_path; ?>" alt="imagen de la galería" data-index="<?php echo $index; ?>">
+                    <?php }
+                } else { ?>
+                    <p>No hay imágenes adicionales para esta propiedad.</p>
+                <?php } ?>
+            </div>
+        </div>
     </div>
-    </div>
+
+    <!-- Contenedor para la imagen ampliada -->
+<div id="imagen-ampliada" class="imagen-ampliada">
+    <span class="cerrar">&times;</span>
+    <img class="imagen-ampliada-contenido" id="imagen-ampliada-contenido">
+    <a class="prev" id="prev">&#10094;</a>
+    <a class="next" id="next">&#10095;</a>
+</div>
 </main>
