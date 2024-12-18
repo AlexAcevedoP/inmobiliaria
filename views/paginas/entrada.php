@@ -1,19 +1,42 @@
+<?php
+require_once __DIR__ . '/../../includes/config/database.php';
+require_once __DIR__ . '/../../includes/funciones.php';
+
+$db = conectarDB();
+
+// Obtener el ID de la entrada
+$id = $_GET['id'];
+$id = filter_var($id, FILTER_VALIDATE_INT);
+
+if (!$id) {
+    header('Location: /blog');
+}
+
+// Consultar la entrada
+$query = "SELECT * FROM blog WHERE id = {$id}";
+$resultado = mysqli_query($db, $query);
+
+if ($resultado->num_rows === 0) {
+    header('Location: /blog');
+}
+
+$entrada = mysqli_fetch_assoc($resultado);
+
+//incluirTemplate('header');
+?>
+
 <main class="contenedor seccion contenido-centrado">
-        <h1>Guía para la decoración de tu hogar</h1>
+    <h1><strong><?php echo $entrada['titulo']; ?></strong></h1>
 
-   
-        <picture>
-            <source srcset="build/img/destacada2.webp" type="image/webp">
-            <source srcset="build/img/destacada2.jpg" type="image/jpeg">
-            <img loading="lazy" src="build/img/destacada2.jpg" alt="imagen de la propiedad">
-        </picture>
+    <picture>
+        <source srcset="/imagenes/<?php echo $entrada['imagen']; ?>" type="image/webp">
+        <source srcset="/imagenes/<?php echo $entrada['imagen']; ?>" type="image/jpeg">
+        <img loading="lazy" src="/imagenes/<?php echo $entrada['imagen']; ?>" alt="Texto Entrada Blog">
+    </picture>
 
-        <p class="informacion-meta">Escrito el: <span>20/10/2021</span> por: <span>Admin</span> </p>
+    <p class="informacion-meta">Escrito el: <span><?php echo $entrada['fecha']; ?></span> por: <span><?php echo $entrada['autor']; ?></span></p>
 
-
-        <div class="resumen-propiedad">
-            <p>Proin consequat viverra sapien, malesuada tempor tortor feugiat vitae. In dictum felis et nunc aliquet molestie. Proin tristique commodo felis, sed auctor elit auctor pulvinar. Nunc porta, nibh quis convallis sollicitudin, arcu nisl semper mi, vitae sagittis lorem dolor non risus. Vivamus accumsan maximus est, eu mollis mi. Proin id nisl vel odio semper hendrerit. Nunc porta in justo finibus tempor. Suspendisse lobortis dolor quis elit suscipit molestie. Sed condimentum, erat at tempor finibus, urna nisi fermentum est, a dignissim nisi libero vel est. Donec et imperdiet augue. Curabitur malesuada sodales congue. Suspendisse potenti. Ut sit amet convallis nisi.</p>
-
-            <p>Aliquam lectus magna, luctus vel gravida nec, iaculis ut augue. Praesent ac enim lorem. Quisque ac dignissim sem, non condimentum orci. Morbi a iaculis neque, ac euismod felis. Fusce augue quam, fermentum sed turpis nec, hendrerit dapibus ante. Cras mattis laoreet nibh, quis tincidunt odio fermentum vel. Nulla facilisi.</p>
-        </div>
-    </main>
+    <div class="resumen-propiedad">
+        <p><?php echo $entrada['contenido']; ?></p>
+    </div>
+</main>
