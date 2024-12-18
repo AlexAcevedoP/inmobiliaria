@@ -12,6 +12,7 @@ use MVC\Router;
 use Controllers\PropiedadController;
 use Controllers\VendedorController;
 use Controllers\PaginasController;
+use Controllers\BlogController;
 
 $router = new Router();
 //ruta con su respectiva funcion del controlador
@@ -28,6 +29,10 @@ $router->post('/vendedores/crear', [VendedorController::class, 'crear']);
 $router->get('/vendedores/actualizar', [VendedorController::class, 'actualizar']);
 $router->post('/vendedores/actualizar', [VendedorController::class, 'actualizar']);
 $router->post('/vendedores/eliminar', [VendedorController::class, 'eliminar']);
+
+// Rutas para el blog
+$router->get('/blog/crear', [BlogController::class, 'crear']);
+$router->post('/blog/crear', [BlogController::class, 'crear']);
 
 //zona publica
 $router->get('/',[PaginasController::class, 'index']);

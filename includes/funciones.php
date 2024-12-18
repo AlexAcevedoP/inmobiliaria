@@ -11,12 +11,15 @@ function incluirTemplate(string  $nombre, bool $inicio = false)
     include TEMPLATES_URL . "/{$nombre}.php";
 }
 
+// Función para verificar si el usuario está autenticado
 function estaAutenticado()
 {
-    session_start();
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start(); // Iniciar la sesión solo si no está activa
+    }
 
     if (!isset($_SESSION['login']) || !$_SESSION['login']) {
-        header('Location: /');
+        header('Location: /login');
         exit; // Asegúrate de detener la ejecución después de redirigir
     }
 }
