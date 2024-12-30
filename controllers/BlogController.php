@@ -42,7 +42,7 @@ class BlogController {
 
             if (empty($errores)) {
                 $entrada->guardar();
-                header('Location: /blog?resultado=1'); // Redirigir después de guardar
+                header('Location: /admin?resultado=2'); // Redirigir después de guardar
                 exit; // Asegúrate de detener la ejecución después de redirigir
             }
         }
