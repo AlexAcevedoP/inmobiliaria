@@ -7,6 +7,7 @@ use Model\Propiedad;
 use Model\Vendedor;
 use Model\Imagen;
 use Model\TipoPropiedad; // Importar la clase TipoPropiedad
+use Model\Blog;
 use Intervention\Image\ImageManagerStatic as Image;
 
 // Incluir el archivo de funciones
@@ -19,13 +20,15 @@ class PropiedadController
     {
         $propiedades = Propiedad::all();
         $vendedores = Vendedor::all();
+        $entradas = Blog::all();
         // Muestra mensaje condicional
         $resultado = $_GET['resultado'] ?? null;
 
         $router->render('propiedades/admin', [
             'propiedades' => $propiedades,
             'resultado' => $resultado,
-            'vendedores' => $vendedores
+            'vendedores' => $vendedores,
+            'entradas' => $entradas
         ]);
     }
 

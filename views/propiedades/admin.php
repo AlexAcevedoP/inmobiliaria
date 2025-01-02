@@ -85,4 +85,33 @@
 
         </tbody>
     </table>
+    <h2>Entradas de Blog</h2>
+    <table class="propiedades">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($entradas as $entrada) : ?>
+                <tr>
+                    <td><?php echo $entrada->id; ?></td>
+                    <td><?php echo $entrada->titulo; ?></td>
+                    <td><?php echo $entrada->autor; ?></td>
+                    <td>
+                        <form method="POST" class="w-100" action="/blog/eliminar">
+                            <input type="hidden" name="id" value="<?php echo $entrada->id; ?>">
+                            <input type="hidden" name="tipo" value="entrada">
+                            <input type="submit" class="boton-rojo-block" value="Eliminar">
+                        </form>
+                        <a href="/blog/actualizar?id=<?php echo $entrada->id; ?>" class="boton-amarillo-block">Actualizar</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+
 </main>

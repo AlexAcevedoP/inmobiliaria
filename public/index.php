@@ -33,6 +33,9 @@ $router->post('/vendedores/eliminar', [VendedorController::class, 'eliminar']);
 // Rutas para el blog
 $router->get('/blog/crear', [BlogController::class, 'crear']);
 $router->post('/blog/crear', [BlogController::class, 'crear']);
+$router->get('/blog/actualizar', [BlogController::class, 'actualizar']);
+$router->post('/blog/actualizar', [BlogController::class, 'actualizar']);
+$router->post('/blog/eliminar', [BlogController::class, 'eliminar']);
 
 //zona publica
 $router->get('/',[PaginasController::class, 'index']);
