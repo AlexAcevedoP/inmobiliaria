@@ -7,7 +7,7 @@ class Propiedad extends ActiveRecord
 
     protected static $tabla = 'propiedades';
 
-    protected static $columnasDB = ['id', 'titulo', 'precio', 'imagen', 'descripcion', 'habitaciones', 'wc', 'estacionamiento', 'creado', 'vendedorId', 'departamento', 'municipio', 'tipo_propiedad', 'metros_cuadrados'];	
+    protected static $columnasDB = ['id', 'titulo', 'precio', 'imagen', 'descripcion', 'habitaciones', 'wc', 'estacionamiento', 'creado', 'vendedorId', 'departamento', 'municipio','barrio', 'tipo_propiedad', 'metros_cuadrados'];	
 
     public $id;
     public $titulo;
@@ -22,6 +22,7 @@ class Propiedad extends ActiveRecord
     //nuevos campos en la base de datos
     public $departamento;
     public $municipio;
+    public $barrio;
     public $tipo_propiedad;
     public $metros_cuadrados;
 
@@ -40,6 +41,7 @@ class Propiedad extends ActiveRecord
         //nuevos campos en el costructor
         $this->departamento = $args['departamento'] ?? '';
         $this->municipio = $args['municipio'] ?? '';
+        $this->barrio = $args['barrio'] ?? '';
         $this->tipo_propiedad = $args['tipo_propiedad'] ?? '';
         $this->metros_cuadrados = $args['metros_cuadrados'] ?? '';
     }

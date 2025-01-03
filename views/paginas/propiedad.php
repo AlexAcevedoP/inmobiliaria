@@ -6,6 +6,7 @@
 
     <div class="resumen-propiedad">
     <p class="precio">$<?php echo number_format($propiedad->precio); ?> </p>
+    
         <ul class="iconos-caracteristicas">
             <li>
                 <img class="icono" loading="lazy" src="build/img/icono_wc.svg" alt="icono wc">
@@ -21,10 +22,15 @@
             </li>
         </ul>
 
-        <p><strong>Departamento:</strong> <?php echo $propiedad->departamento; ?></p>
+        
         <p><strong>Municipio:</strong> <?php echo $propiedad->municipio; ?></p>
+        <p><strong>Departamento:</strong> <?php echo $propiedad->departamento; ?></p>
+        <p><strong>Barrio:</strong> <?php echo $propiedad->barrio; ?></p>
         <p><strong>Tipo de Propiedad:</strong> <?php echo $propiedad->tipo_propiedad; ?></p>
         <p><strong>Área:</strong> <?php echo $propiedad->metros_cuadrados; ?> m²</p>
+        <p>
+            <strong>Precio por metro cuadrado:</strong> <?php echo number_format($propiedad->precio / $propiedad->metros_cuadrados, 2); ?>
+        </p> 
 
         <p><?php echo nl2br($propiedad->descripcion); ?></p>
 

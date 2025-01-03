@@ -10,7 +10,7 @@
 
     <form class="formulario" method="POST" enctype="multipart/form-data">
     
-    <?php include __DIR__ . '/formulario.php';?>
+    <?php include __DIR__ . '/../../includes/templates/formulario_propiedades.php'; ?>
 
     <input type="submit" value="Crear Propiedad" class="boton boton-verde">
 
