@@ -147,7 +147,8 @@ if ($resultado->num_rows) {
                         </li>
                     </ul>
 
-                    <a href="anuncio.php?id=<?php echo $propiedad->id; ?>" class="boton-amarillo-block">
+                    <a href="/propiedad?id=<?php echo $propiedad->id; ?>" class="boton-amarillo-block">
+
                         Ver Propiedad
                     </a>
                 </div>
