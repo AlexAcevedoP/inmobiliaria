@@ -7,6 +7,29 @@ document.addEventListener('DOMContentLoaded', function() {
     galeriaImagenes();
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const tipoPropiedad = document.getElementById('tipo_propiedad');
+    const camposRelevantes = document.getElementById('campos-relevantes');
+
+    if (tipoPropiedad) {
+        tipoPropiedad.addEventListener('change', mostrarCamposRelevantes);
+
+        // Inicializar la visibilidad de los campos al cargar la página
+        mostrarCamposRelevantes();
+    }
+});
+
+function mostrarCamposRelevantes() {
+    const tipoPropiedad = document.getElementById('tipo_propiedad').value;
+    const camposRelevantes = document.getElementById('campos-relevantes');
+
+    if (tipoPropiedad === '3') { // Verificar si el valor es '3' para ocultar los campos
+        camposRelevantes.style.display = 'none';
+    } else {
+        camposRelevantes.style.display = 'block';
+    }
+}
+
 function darkMode() {
 
     const prefiereDarkMode = window.matchMedia('(prefers-color-scheme: dark)');

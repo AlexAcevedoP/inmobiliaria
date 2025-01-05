@@ -20,29 +20,6 @@
 
 <fieldset>
     <legend>Información de la Propiedad</legend>
-
-    <label for="habitaciones">Habitaciones:</label>
-    <input type="number" id="habitaciones" name="propiedad[habitaciones]" placeholder="Ej: 3" min="1" max="9" value="<?php echo s($propiedad->habitaciones); ?>">
-
-    <label for="wc">Baños:</label>
-    <input type="number" id="wc" name="propiedad[wc]" placeholder="Ej: 3" min="1" max="9" value="<?php echo s($propiedad->wc); ?>">
-
-    <label for="estacionamiento">Estacionamiento:</label>
-    <input type="number" id="estacionamiento" name="propiedad[estacionamiento]" placeholder="Ej: 3" min="1" max="9" value="<?php echo s($propiedad->estacionamiento); ?>">
-
-    <label for="metros_cuadrados">Metros Cuadrados:</label>
-    <input type="number" id="metros_cuadrados" name="propiedad[metros_cuadrados]" placeholder="Ej: 120" min="1" value="<?php echo s($propiedad->metros_cuadrados); ?>">
-
-    <label for="departamento">Departamento:</label>
-    <input type="text" id="departamento" name="propiedad[departamento]" placeholder="Departamento" value="<?php echo s($propiedad->departamento); ?>">
-
-
-    <label for="municipio">Municipio:</label>
-    <input type="text" id="municipio" name="propiedad[municipio]" placeholder="Municipio" value="<?php echo s($propiedad->municipio); ?>">
-
-    <label for="barrio">Barrio:</label>
-    <input type="text" id="barrio" name="propiedad[barrio]" placeholder="Barrio" value="<?php echo s($propiedad->barrio); ?>">
-
     <label for="tipo_propiedad">Tipo de Propiedad:</label>
     <select id="tipo_propiedad" name="propiedad[tipo_propiedad]">
         <option selected value="">--Seleccione--</option>
@@ -53,8 +30,31 @@
     <?php endforeach; ?>
     
     </select>
+<div id="campos-relevantes">
+    <label for="habitaciones">Habitaciones:</label>
+    <input type="number" id="habitaciones" name="propiedad[habitaciones]" placeholder="Ej: 3" min="1" max="9" value="<?php echo s($propiedad->habitaciones); ?>">
 
-   
+    <label for="wc">Baños:</label>
+    <input type="number" id="wc" name="propiedad[wc]" placeholder="Ej: 3" min="1" max="9" value="<?php echo s($propiedad->wc); ?>">
+
+    <label for="estacionamiento">Estacionamiento:</label>
+    <input type="number" id="estacionamiento" name="propiedad[estacionamiento]" placeholder="Ej: 3" min="1" max="9" value="<?php echo s($propiedad->estacionamiento); ?>">
+    </div>
+
+    <label for="metros_cuadrados">Metros Cuadrados:</label>
+    <input type="number" id="metros_cuadrados" name="propiedad[metros_cuadrados]" placeholder="Ej: 120" min="1" value="<?php echo s($propiedad->metros_cuadrados); ?>">
+
+
+    <label for="departamento">Departamento:</label>
+    <input type="text" id="departamento" name="propiedad[departamento]" placeholder="Departamento" value="<?php echo s($propiedad->departamento); ?>">
+
+
+    <label for="municipio">Municipio:</label>
+    <input type="text" id="municipio" name="propiedad[municipio]" placeholder="Municipio" value="<?php echo s($propiedad->municipio); ?>">
+
+    <label for="barrio">Barrio:</label>
+    <input type="text" id="barrio" name="propiedad[barrio]" placeholder="Barrio" value="<?php echo s($propiedad->barrio); ?>">
+       
 </fieldset>
 
 <fieldset>

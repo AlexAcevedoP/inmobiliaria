@@ -45,6 +45,13 @@ class PropiedadController
             // Crear una nueva instancia con los datos del formulario
             $propiedad = new Propiedad($_POST['propiedad']);
 
+             // Burlar la validación para tipo de propiedad "lote"
+             if ($propiedad->tipo_propiedad === '3') {
+                $propiedad->habitaciones = 1;
+                $propiedad->wc = 1;
+                $propiedad->estacionamiento = 1;
+            }
+
             /** SUBIDA DE ARCHIVOS */
 
             // Procesar la imagen principal

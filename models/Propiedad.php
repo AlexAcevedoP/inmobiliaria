@@ -119,9 +119,21 @@ public function eliminarImagenes() {
         } elseif (!preg_match('/^[\p{L}\s]+$/u', $this->municipio)) {
             self::$errores[] = 'El Municipio solo puede contener letras';
         }
-
-        if (!$this->tipo_propiedad) {
-            self::$errores[] = 'El Tipo de Propiedad es obligatorio';
+        //debuguear($this->tipo_propiedad);
+         // Validar campos adicionales solo si el tipo de propiedad no es "lote"
+        if ($this->tipo_propiedad !== '3') {
+            if (!$this->habitaciones) {
+                self::$errores[] = 'El número de habitaciones es obligatorio';
+            }
+            if (!$this->wc) {
+                self::$errores[] = 'El número de baños es obligatorio';
+            }
+            if (!$this->estacionamiento) {
+                self::$errores[] = 'El número de estacionamientos es obligatorio';
+            }
+        } else {
+            // Depuración: Verificar que el tipo de propiedad es "lote"
+            error_log('Tipo de propiedad es lote, omitiendo validación de habitaciones, baños y estacionamiento.');
         }
 
         if (!$this->metros_cuadrados) {
@@ -129,6 +141,7 @@ public function eliminarImagenes() {
         } elseif (!is_numeric($this->metros_cuadrados) || $this->metros_cuadrados <= 0) {
             self::$errores[] = 'Los Metros Cuadrados deben ser un número positivo';
         }
+        
 
 
         return self::$errores;
