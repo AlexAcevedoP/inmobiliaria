@@ -17,10 +17,12 @@
                     <img class="icono" loading="lazy" src="build/img/icono_estacionamiento.svg" alt="icono estacionamiento">
                     <p><?php echo $propiedad->estacionamiento; ?></p>
                 </li>
+                <?php if ($propiedad->tipo_propiedad !== '4' && $propiedad->tipo_propiedad !== '5') : ?>
                 <li>
                     <img class="icono" loading="lazy" src="build/img/icono_dormitorio.svg" alt="icono habitaciones">
                     <p><?php echo $propiedad->habitaciones; ?></p>
                 </li>
+                <?php endif; ?>
             </ul>
         <?php endif; ?>
 

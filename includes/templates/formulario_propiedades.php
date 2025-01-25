@@ -31,9 +31,10 @@
     
     </select>
 <div id="campos-relevantes">
-    <label for="habitaciones">Habitaciones:</label>
-    <input type="number" id="habitaciones" name="propiedad[habitaciones]" placeholder="Ej: 3" min="1" max="9" value="<?php echo s($propiedad->habitaciones); ?>">
-
+        <div id="campo-habitaciones">
+            <label for="habitaciones">Habitaciones:</label>
+            <input type="number" id="habitaciones" name="propiedad[habitaciones]" placeholder="Ej: 3" min="1" max="9" value="<?php echo s($propiedad->habitaciones); ?>">
+        </div>
     <label for="wc">Baños:</label>
     <input type="number" id="wc" name="propiedad[wc]" placeholder="Ej: 3" min="1" max="9" value="<?php echo s($propiedad->wc); ?>">
 

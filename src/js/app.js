@@ -22,11 +22,19 @@ document.addEventListener('DOMContentLoaded', function() {
 function mostrarCamposRelevantes() {
     const tipoPropiedad = document.getElementById('tipo_propiedad').value;
     const camposRelevantes = document.getElementById('campos-relevantes');
+    const campoHabitaciones = document.getElementById('campo-habitaciones');
 
-    if (tipoPropiedad === '3') { // Verificar si el valor es '3' para ocultar los campos
+    if (tipoPropiedad === '3') { // Verificar si el valor es '3' para ocultar todos los campos
         camposRelevantes.style.display = 'none';
     } else {
         camposRelevantes.style.display = 'block';
+    }
+
+    if (tipoPropiedad === '4' || tipoPropiedad === '5') { // Verificar si el valor es '4' o '5' para ocultar el campo habitaciones
+        campoHabitaciones.style.display = 'none';
+        inputHabitaciones.value = 1; // Establecer el valor a 1
+    } else {
+        campoHabitaciones.style.display = 'block';
     }
 }
 

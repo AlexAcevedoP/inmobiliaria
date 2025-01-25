@@ -51,6 +51,10 @@ class PropiedadController
                 $propiedad->wc = 1;
                 $propiedad->estacionamiento = 1;
             }
+            // Burlar la validación solo del campo habitaciones para "bodega" y "local comercial"
+            if ($propiedad->tipo_propiedad === '4' || $propiedad->tipo_propiedad === '5') {
+                $propiedad->habitaciones = 1;
+            }
 
             /** SUBIDA DE ARCHIVOS */
 
