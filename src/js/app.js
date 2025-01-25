@@ -141,6 +141,18 @@ function galeriaImagenes() {
         }
     });
 
+    document.addEventListener('keydown', function(event) {
+        if (imagenAmpliada.style.display === 'block') {
+            if (event.key === 'ArrowLeft') {
+                currentIndex = (currentIndex === 0) ? miniaturas.length - 1 : currentIndex - 1;
+                mostrarImagenAmpliada(currentIndex);
+            } else if (event.key === 'ArrowRight') {
+                currentIndex = (currentIndex === miniaturas.length - 1) ? 0 : currentIndex + 1;
+                mostrarImagenAmpliada(currentIndex);
+            }
+        }
+    });
+
     function mostrarImagenAmpliada(index) {
         imagenAmpliada.style.display = 'block';
         imagenAmpliadaContenido.src = miniaturas[index].src;
