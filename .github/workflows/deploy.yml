@@ -1,0 +1,36 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+      - production
+
+jobs:
+  deploy-subdomain:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy to Subdomain (Laboratorio)
+        run: |
+          echo "Desplegando en el subdominio (laboratorio)..."
+          rsync -avz --delete ./public/ user@senmuz.tunegocioaun.click:/path/to/subdomain/
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+  deploy-production:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/production'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy to Production
+        run: |
+          echo "Desplegando en el dominio principal (producción)..."
+          rsync -avz --delete ./public/ user@sanmuzinmobiliaria.com:/path/to/production/
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
