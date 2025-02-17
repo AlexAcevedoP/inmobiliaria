@@ -63,3 +63,6 @@
     <a class="prev" id="prev">&#10094;</a>
     <a class="next" id="next">&#10095;</a>
 </div>
+
+<!-- Incluir el Botón de WhatsApp Flotante -->
+<?php include __DIR__ . '/../../includes/templates/whatsapp.php'; ?>

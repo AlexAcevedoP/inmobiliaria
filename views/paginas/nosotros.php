@@ -27,3 +27,6 @@
 
         <?php include 'iconos.php'; ?>
     </section>
+    
+<!-- Incluir el Botón de WhatsApp Flotante -->
+<?php include __DIR__ . '/../../includes/templates/whatsapp.php'; ?>

@@ -35,3 +35,6 @@ require_once __DIR__ . '/../../includes/funciones.php';
         </article>
     <?php endwhile; ?>
 </main>
+
+<!-- Incluir el Botón de WhatsApp Flotante -->
+<?php include __DIR__ . '/../../includes/templates/whatsapp.php'; ?>
