@@ -7,6 +7,7 @@ use Model\Usuario;
 
 class UsuarioController {
     public static function crear(Router $router) {
+        estaAutenticado();
         $usuario = new Usuario;
         $errores = Usuario::getErrores();
 
