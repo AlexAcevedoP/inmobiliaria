@@ -13,6 +13,7 @@ use Controllers\PropiedadController;
 use Controllers\VendedorController;
 use Controllers\PaginasController;
 use Controllers\BlogController;
+use Controllers\UsuarioController;
 
 $router = new Router();
 //ruta con su respectiva funcion del controlador
