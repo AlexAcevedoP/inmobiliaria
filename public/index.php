@@ -23,6 +23,8 @@ $router->post('/propiedades/crear', [PropiedadController::class, 'crear']);
 $router->get('/propiedades/actualizar', [PropiedadController::class, 'actualizar']);
 $router->post('/propiedades/actualizar', [PropiedadController::class, 'actualizar']);
 $router->post('/propiedades/eliminar', [PropiedadController::class, 'eliminar']);
+$router->get('/usuarios/crear', [UsuarioController::class, 'crear']);
+$router->post('/usuarios/crear', [UsuarioController::class, 'crear']);
 
 $router->get('/vendedores/crear', [VendedorController::class, 'crear']);
 $router->post('/vendedores/crear', [VendedorController::class, 'crear']);
