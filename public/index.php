@@ -56,4 +56,9 @@ $router->get('/login',[LoginController::class, 'login']);
 $router->post('/login',[LoginController::class, 'login']);
 $router->get('/logout',[LoginController::class, 'logout']);
 
+// Ruta temporal para generar el hash de la contraseña
+$router->get('/generar_hash', function() {
+    require 'generar_hash.php';
+});
+
 $router->comprobarRutas();
