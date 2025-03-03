@@ -62,3 +62,6 @@
             <input type="submit" value="Enviar" class="boton-verde">
         </form>
     </main>
+    
+<!-- Incluir el Botón de WhatsApp Flotante -->
+<?php include __DIR__ . '/../../includes/templates/whatsapp.php'; ?>

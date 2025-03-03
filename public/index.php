@@ -13,6 +13,7 @@ use Controllers\PropiedadController;
 use Controllers\VendedorController;
 use Controllers\PaginasController;
 use Controllers\BlogController;
+use Controllers\UsuarioController;
 
 $router = new Router();
 //ruta con su respectiva funcion del controlador
@@ -23,6 +24,8 @@ $router->post('/propiedades/crear', [PropiedadController::class, 'crear']);
 $router->get('/propiedades/actualizar', [PropiedadController::class, 'actualizar']);
 $router->post('/propiedades/actualizar', [PropiedadController::class, 'actualizar']);
 $router->post('/propiedades/eliminar', [PropiedadController::class, 'eliminar']);
+$router->get('/usuarios/crear', [UsuarioController::class, 'crear']);
+$router->post('/usuarios/crear', [UsuarioController::class, 'crear']);
 
 $router->get('/vendedores/crear', [VendedorController::class, 'crear']);
 $router->post('/vendedores/crear', [VendedorController::class, 'crear']);
@@ -52,5 +55,10 @@ $router->post('/contacto',[PaginasController::class, 'contacto']);
 $router->get('/login',[LoginController::class, 'login']);
 $router->post('/login',[LoginController::class, 'login']);
 $router->get('/logout',[LoginController::class, 'logout']);
+
+// Ruta temporal para generar el hash de la contraseña
+$router->get('/generar_hash', function() {
+    require 'generar_hash.php';
+});
 
 $router->comprobarRutas();

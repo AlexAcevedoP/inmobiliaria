@@ -40,3 +40,6 @@ $entrada = mysqli_fetch_assoc($resultado);
         <p><?php echo $entrada['contenido']; ?></p>
     </div>
 </main>
+
+<!-- Incluir el Botón de WhatsApp Flotante -->
+<?php include __DIR__ . '/../../includes/templates/whatsapp.php'; ?>

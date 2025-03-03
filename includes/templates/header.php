@@ -14,6 +14,7 @@
     <title>Bienes Raices</title>
     <link rel="stylesheet" href="/build/css/app.css">
 </head>
+<!-- Botón de WhatsApp Flotante -->
 <body>
     
     <header class="header <?php echo $inicio  ? 'inicio' : ''; ?>">

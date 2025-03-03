@@ -1,7 +1,24 @@
 .contenido-nosotros {
+    .imagen {
+        float: left;
+        margin-right: 20px;
+        width: 300px; /* Ajusta el tamaño de la imagen según sea necesario */
+    }
+
+    .texto-nosotros {
+        overflow: hidden;
+    }
 
     @include tablet {
-        @include grid(2, 2rem);
+        .imagen {
+            width: 100%; /* Ajusta el tamaño de la imagen en pantallas más pequeñas */
+            float: none;
+            margin-right: 0;
+        }
+
+        .texto-nosotros {
+            overflow: visible;
+        }
     }
 }
 
