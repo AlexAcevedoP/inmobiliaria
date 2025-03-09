@@ -36,6 +36,13 @@ class Admin extends ActiveRecord{
 
         $resultado = self::$db->query($query);
 
+         // Depurar la consulta y el resultado
+         debuguear([
+            'query' => $query,
+            'resultado' => $resultado,
+            'num_rows' => $resultado->num_rows
+        ]);
+
         if(!$resultado->num_rows){
             self::$errores[]='El usuario no existe';
             return;

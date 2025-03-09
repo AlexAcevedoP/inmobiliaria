@@ -2,53 +2,58 @@
 
 namespace Controllers;
 use MVC\Router;
-use Model\Admin;
+use Model\Usuario;
 
-class LoginController{
+class LoginController {
 
-    public static function login(Router $router){
-        $errores=[];
+    public static function login(Router $router) {
+        $errores = [];
 
-        if($_SERVER['REQUEST_METHOD']==='POST'){
-            
-            $auth = new Admin($_POST);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Crear una nueva instancia con los datos del formulario
+            $auth = new Usuario($_POST);
 
-            $errores=$auth->validar();
+            // Validar los datos
+            $errores = $auth->validar();
 
-            if(empty($errores)){
-                //verificar si el usuario existe
-               $resultado= $auth->existeUsuario();
+            if (empty($errores)) {
+                // Verificar si el usuario existe
+                $resultado = $auth->existeUsuario();
 
-               if(!$resultado){
-                $errores = Admin::getErrores();
-               }else{
-                
-                //Verificar el password
-                $autenticado = $auth-> comprobraPassword($resultado);
+                // Depurar el resultado de la consulta
+                //debuguear($resultado);
 
-                if($autenticado){                    
-                //Autenticar al usuario
-                $auth->autenticar();
+                if (!$resultado) {
+                    $errores = Usuario::getErrores();
+                } else {
+                    // Verificar el password
+                    $autenticado = $auth->comprobarPassword($resultado);
 
-                }else{
-                    //Password incorrecto, mensaje de error
-                    $errores=Admin::getErrores();
+                    // Depurar el resultado de la verificación de la contraseña
+                   // debuguear($autenticado);
+
+                    if ($autenticado) {
+                        // Autenticar al usuario
+                        $auth->autenticar();
+                    } else {
+                        // Password incorrecto, mensaje de error
+                        $errores = Usuario::getErrores();
+                    }
                 }
-               }
-            }           
+            }
         }
-        
-        $router->render('auth/login',[
-            'errores'=>$errores
+
+        // Renderizar la vista de login con los errores
+        $router->render('auth/login', [
+            'errores' => $errores
         ]);
     }
 
-    public static function logout(){
+    public static function logout() {
         session_start();
         
         $_SESSION = [];
 
         header('Location: /');
     }
-
 }

@@ -1,6 +1,5 @@
 <section class="seccion contenedor">
-    <h2>Casas y Apartamentos en Venta</h2>
-    
+   
     <?php
     include 'listado.php';
     ?>
@@ -79,3 +78,5 @@
         </div>
     </section>
 </div>
+<!-- Incluir el Botón de WhatsApp Flotante -->
+<?php include __DIR__ . '/../../includes/templates/whatsapp.php'; ?>

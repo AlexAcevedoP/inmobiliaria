@@ -18,3 +18,6 @@ ini_set('error_log', __DIR__ . '/../../error_log.txt');
             include 'listado.php';
         ?>
     </main>
+    
+<!-- Incluir el Botón de WhatsApp Flotante -->
+<?php include __DIR__ . '/../../includes/templates/whatsapp.php'; ?>

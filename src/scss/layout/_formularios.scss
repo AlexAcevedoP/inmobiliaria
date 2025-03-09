@@ -41,4 +41,42 @@
         margin: 0;
         width: auto;
     }
+
+    /* Estilos específicos para el formulario de filtro */
+    .formulario-filtro {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .formulario-filtro .campo {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .formulario-filtro .boton-buscar {
+        grid-column: span 3;
+        justify-self: center;
+    }
+
+    /* Media queries para adaptabilidad */
+    @media (max-width: 1024px) {
+        .formulario-filtro {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .formulario-filtro .boton-buscar {
+            grid-column: span 2;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .formulario-filtro {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        .formulario-filtro .boton-buscar {
+            grid-column: span 1;
+        }
+    }
 }

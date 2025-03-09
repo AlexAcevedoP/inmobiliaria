@@ -1,0 +1,66 @@
+/* FILE: src/scss/layout/internas/filtro.scss */
+
+//@import '../base/variables'; // Asegúrate de importar las variables si las necesitas
+//@import '../layout/formularios'; // Importa los estilos de formularios
+
+/* Estilos para el formulario de filtro */
+/* .formulario-filtro {
+    @extend .formulario; // Extiende los estilos de .formulario
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    .campo {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .campo label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .campo input {
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 0.25rem;
+    }
+
+    .boton-verde {
+        background-color: #28a745;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .boton-verde:hover {
+        background-color: #218838;
+    }
+
+    .boton-buscar {
+        grid-column: span 5;
+        justify-self: center;
+    } */
+
+    /* Media queries para adaptabilidad */
+    /* @media (max-width: 1024px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 480px) {
+        grid-template-columns: repeat(3, 1fr);
+
+        .boton-buscar {
+            grid-column: span 3;
+        }
+    } 
+}*/
