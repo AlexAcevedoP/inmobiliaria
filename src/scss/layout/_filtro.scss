@@ -1,10 +1,10 @@
 /* FILE: src/scss/layout/internas/filtro.scss */
 
-@import '../base/variables'; // Asegúrate de importar las variables si las necesitas
-@import '../layout/formularios'; // Importa los estilos de formularios
+//@import '../base/variables'; // Asegúrate de importar las variables si las necesitas
+//@import '../layout/formularios'; // Importa los estilos de formularios
 
 /* Estilos para el formulario de filtro */
-.formulario-filtro {
+/* .formulario-filtro {
     @extend .formulario; // Extiende los estilos de .formulario
 
     display: grid;
@@ -45,10 +45,10 @@
     .boton-buscar {
         grid-column: span 5;
         justify-self: center;
-    }
+    } */
 
     /* Media queries para adaptabilidad */
-    @media (max-width: 1024px) {
+    /* @media (max-width: 1024px) {
         grid-template-columns: repeat(3, 1fr);
     }
 
@@ -62,5 +62,5 @@
         .boton-buscar {
             grid-column: span 3;
         }
-    }
-}
+    } 
+}*/
