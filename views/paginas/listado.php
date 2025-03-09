@@ -67,57 +67,57 @@ if ($resultado->num_rows) {
 <main class="contenedor seccion">
     <h1>Listado de Propiedades</h1>
 
-    <form class="formulario" method="GET">
-        <fieldset class="filtros" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem;">
+    <form class="formulario-filtro" method="GET">
+        <fieldset class="filtros">
             <legend>Filtrar por:</legend>
 
-            <div style="grid-column: span 1;">
+            <div class="campo">
                 <label for="precio">Precio hasta:</label>
                 <input type="number" id="precio" name="precio" placeholder="Precio Propiedad" value="<?php echo s($precio); ?>">
             </div>
 
-            <div style="grid-column: span 1;">
+            <div class="campo">
                 <label for="habitaciones">Habitaciones:</label>
                 <input type="number" id="habitaciones" name="habitaciones" placeholder="Ej: 3" min="1" max="9" value="<?php echo s($habitaciones); ?>">
             </div>
 
-            <div style="grid-column: span 1;">
+            <div class="campo">
                 <label for="wc">Baños:</label>
                 <input type="number" id="wc" name="wc" placeholder="Ej: 3" min="1" max="9" value="<?php echo s($wc); ?>">
             </div>
 
-            <div style="grid-column: span 1;">
+            <div class="campo">
                 <label for="estacionamiento">Estacionamiento:</label>
                 <input type="number" id="estacionamiento" name="estacionamiento" placeholder="Ej: 3" min="1" max="9" value="<?php echo s($estacionamiento); ?>">
             </div>
 
-            <div style="grid-column: span 1;">
+            <div class="campo">
                 <label for="municipio">Municipio:</label>
                 <input type="text" id="municipio" name="municipio" placeholder="Municipio" value="<?php echo s($municipio); ?>">
             </div>
 
-            <div style="grid-column: span 1;">
+            <div class="campo">
                 <label for="departamento">Departamento:</label>
                 <input type="text" id="departamento" name="departamento" placeholder="Departamento" value="<?php echo s($departamento); ?>">
             </div>
 
-            <div style="grid-column: span 1;">
+            <div class="campo">
                 <label for="metros_min">Metros Cuadrados Mínimos:</label>
                 <input type="number" id="metros_min" name="metros_min" placeholder="Ej: 50" min="1" value="<?php echo s($metros_min); ?>">
             </div>
 
-            <div style="grid-column: span 1;">
+            <div class="campo">
                 <label for="metros_max">Metros Cuadrados Máximos:</label>
                 <input type="number" id="metros_max" name="metros_max" placeholder="Ej: 200" min="1" value="<?php echo s($metros_max); ?>">
             </div>
 
-            <div style="grid-column: span 1;">
+            <div class="campo">
                 <label for="barrio">Barrio:</label>
                 <input type="text" id="barrio" name="barrio" placeholder="Barrio" value="<?php echo s($barrio); ?>">
             </div>
 
-            <div style="grid-column: span 5; justify-self: center;">
-                <input type="submit" value="Buscar" class="boton boton-verde">
+            <div class="campo boton-buscar">
+                <input type="submit" value="Buscar" class="boton-verde">
             </div>
         </fieldset>
     </form>
@@ -148,7 +148,6 @@ if ($resultado->num_rows) {
                     </ul>
 
                     <a href="/propiedad?id=<?php echo $propiedad->id; ?>" class="boton-amarillo-block">
-
                         Ver Propiedad
                     </a>
                 </div>
