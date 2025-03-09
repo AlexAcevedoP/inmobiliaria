@@ -17,7 +17,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienes Raices</title>
+    <title>Sanmnuz Inmobiliaria</title>
     <link rel="stylesheet" href="../build/css/app.css">
 </head>
 
@@ -27,7 +27,7 @@
         <div class="contenedor contenido-header">
             <div class="barra">
                 <a href="/">
-                    <img src="/build/img/logo.svg" alt="Logotipo de Bienes Raices">
+                    <img src="/build/img/logo.png" alt="Logotipo de Bienes Raices" style="max-width: 200px; max-height: 200px;">
                 </a>
 
                 <div class="mobile-menu">
@@ -38,7 +38,7 @@
                     <img class="dark-mode-boton" src="/build/img/dark-mode.svg">
                     <nav class="navegacion">
                         <a href="/nosotros">Nosotros</a>
-                        <a href="/propiedades">Anuncios</a>
+                        <a href="/propiedades">Propiedades</a>
                         <a href="/blog">Blog</a>
                         <a href="/contacto">Contacto</a>
                         <?php if ($auth): ?>
